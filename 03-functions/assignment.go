@@ -8,8 +8,8 @@ func main() {
 		userChoice = getUserChoice()
 		switch userChoice {
 		case 1, 2, 3, 4:
-
 			operFn := getOper(userChoice)
+			n1, n2 = getOperands()
 			result = operFn(n1, n2)
 			fmt.Println("Result is :", result)
 		case 5:
@@ -25,6 +25,7 @@ func getOperands() (int, int) {
 	var n1, n2 int
 	fmt.Println("Enter the two numbers :")
 	fmt.Scanf("%d %d", &n1, &n2)
+	return n1, n2
 }
 
 func getOper(userChoice int) func(int, int) int {
