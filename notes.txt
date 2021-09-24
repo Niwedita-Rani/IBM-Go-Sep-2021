@@ -51,3 +51,9 @@ func fn(){
 statement-1
 go fn()
 statement-2
+
+Hello World
+    go run hello-world.go 
+    go build hello-world.go 
+    go build -o <binary name> hello-world.go
+
