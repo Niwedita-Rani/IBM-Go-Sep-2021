@@ -2,25 +2,33 @@ package main
 
 import "fmt"
 
-var counter int = 0
-
 func main() {
+	increment, decrement := getCounter()
 	fmt.Println(increment())
 	fmt.Println(increment())
 	fmt.Println(increment())
 	fmt.Println(increment())
-	reset()
 	fmt.Println(increment())
 	fmt.Println(increment())
 	fmt.Println(increment())
 	fmt.Println(increment())
+
+	fmt.Println(decrement())
+	fmt.Println(decrement())
+	fmt.Println(decrement())
+	fmt.Println(decrement())
+	fmt.Println(decrement())
 }
 
-func increment() int {
-	counter++
-	return counter
-}
-
-func reset() {
-	counter = 0
+func getCounter() (func() int, func() int) {
+	var counter int = 0
+	inc := func() int {
+		counter++
+		return counter
+	}
+	dec := func() int {
+		counter--
+		return counter
+	}
+	return inc, dec
 }
