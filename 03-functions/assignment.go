@@ -8,22 +8,10 @@ func main() {
 		userChoice = getUserChoice()
 		switch userChoice {
 		case 1, 2, 3, 4:
-			fmt.Println("Enter the two numbers :")
-			fmt.Scanf("%d %d", &n1, &n2)
-			switch userChoice {
-			case 1:
-				result = add(n1, n2)
-				fmt.Println("Addition of two numbers is :", result)
-			case 2:
-				result = subtract(n1, n2)
-				fmt.Println("Subtraction of two numbers is :", result)
-			case 3:
-				result = multiply(n1, n2)
-				fmt.Println("Multiplication of two numbers is :", result)
-			case 4:
-				result = divide(n1, n2)
-				fmt.Println("Division of two numbers is :", result)
-			}
+
+			operFn := getOper(userChoice)
+			result = operFn(n1, n2)
+			fmt.Println("Result is :", result)
 		case 5:
 			fmt.Println("Exiting...")
 			return
@@ -31,6 +19,26 @@ func main() {
 			fmt.Println("Invalid choice")
 		}
 	}
+}
+
+func getOperands() (int, int) {
+	var n1, n2 int
+	fmt.Println("Enter the two numbers :")
+	fmt.Scanf("%d %d", &n1, &n2)
+}
+
+func getOper(userChoice int) func(int, int) int {
+	switch userChoice {
+	case 1:
+		return add
+	case 2:
+		return subtract
+	case 3:
+		return multiply
+	case 4:
+		return divide
+	}
+	return func(x, y int) int { return 0 }
 }
 
 func add(x, y int) int {
