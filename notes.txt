@@ -102,3 +102,7 @@ Display the following menu when application starts
 
 Functions
     1. variadic functions
+    2. Higher order functions
+        functions can be assigned to variables
+        functions can be passed as arguments to other functions
+        functions can be returned as returned as result
