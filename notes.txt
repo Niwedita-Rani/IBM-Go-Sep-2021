@@ -1,0 +1,53 @@
+Magesh Kuppan
+
+Methodology
+    No powerpoint
+
+Schedule
+    Commence    : 09:30
+    Tea break   : 11:00 (20 mins)
+    Lunch Break : 13:00 (1 hour)
+    Tea break   : 15:30 (20 mins)
+    Wind up     : 17:30 
+
+About You:
+    1. Name
+    2. Total Experience
+    3. Primary Skillset
+    4. Experience in Golang (if any)
+
+
+Why Go?
+    1. Concurrency
+        Built for concurrency
+        language features
+            go, select & range, chan, <-
+
+    2. Simplicity
+        ONLY 25 keywords
+        go, type, package, import, func, main, var, const, if, else, switch, case, break, continue, for, make, new, close, chan, select, return
+        1. No access modifiers (public private etc)
+        2. No classes (only structs & functions)
+        3. No inheritance (only composition)
+        4. No exceptions (only errors)
+        5. Everything is passed by value by default (use pointers to pass by reference)
+        6. No Pointer arithmetic
+
+    3. Efficiency & Performance
+
+
+
+Paradox of Choice
+    Barry Schwartz
+    
+
+var t = new System.Threading.Thread<>()
+t.start()
+
+func fn(){
+
+}
+
+statement-1
+go fn()
+statement-2
