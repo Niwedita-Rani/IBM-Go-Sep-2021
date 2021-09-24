@@ -99,3 +99,6 @@ Display the following menu when application starts
         Perform the operation on the two numbers
         Display the result
         Display the menu
+
+Functions
+    1. variadic functions
