@@ -81,3 +81,21 @@ Data types
 
     byte (alias for uint8)
     rune (alias for int32) (represent a unicode code point)
+
+
+Assignment
+Build an interactive calculator
+Display the following menu when application starts
+    1. Add
+    2. Subtract
+    3. Multiply
+    4. Divide
+    5. Exit
+
+    if the user chooses 5, exit the application
+    if the user chooses any other option, display the menu again
+    if the user chooses 1-4
+        Accept two numbers from the user
+        Perform the operation on the two numbers
+        Display the result
+        Display the menu

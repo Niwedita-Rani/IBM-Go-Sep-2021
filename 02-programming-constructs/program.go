@@ -64,12 +64,11 @@ func main() {
 		otherwise => "Invalid score"
 	*/
 
-	/*
-		var score int
-		fmt.Println("Enter the score :")
-		fmt.Scanf("%d", &score)
-	*/
-	var score int = 8
+	var score int
+	fmt.Println("Enter the score :")
+	fmt.Scanf("%d", &score)
+
+	//var score int = 8
 	switch score {
 	case 0, 1, 2, 3:
 		fmt.Println("Terrible")
