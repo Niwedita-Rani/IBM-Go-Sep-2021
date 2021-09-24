@@ -63,4 +63,10 @@ func main() {
 	result := x + y
 	fmt.Printf(template, x, y, result)
 
+	//type conversion
+	var i int = 100
+	var f float64
+	f = float64(i)
+	fmt.Println(f)
+
 }
