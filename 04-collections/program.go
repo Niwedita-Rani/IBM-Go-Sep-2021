@@ -131,6 +131,7 @@ func main() {
 	delete(cityRanks, "Kochi")
 	fmt.Println("After deleting a key/value pair")
 	fmt.Println(cityRanks)
+
 }
 
 func printStats(label string, data []string) {
