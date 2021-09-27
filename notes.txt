@@ -152,3 +152,8 @@ Modularity
 
         organize the code into packages
             a package is just a folder
+
+        To install a package
+            go get <package-name>
+
+        
