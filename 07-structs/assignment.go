@@ -19,33 +19,46 @@ func main() {
 		Product{101, "Kettle", 2500, 10, "Utencil"},
 		Product{104, "Scribble Pad", 20, 20, "Stationary"},
 	}
+	fmt.Println("Initial List")
+	fmt.Println(FormatProducts(products))
+
+	fmt.Println("Filtered List")
 	costlyProductPredicate := func(product Product) bool {
 		return product.Cost > 100
 	}
+
 	costlyProducts := Filter(products, costlyProductPredicate)
 	fmt.Println("Costly Products")
-	Print(costlyProducts)
+	fmt.Println(FormatProducts(costlyProducts))
 
 	stationaryProductPredicate := func(product Product) bool {
 		return product.Category == "Stationary"
 	}
 	stationaryProducts := Filter(products, stationaryProductPredicate)
 	fmt.Println("Stationary Products")
-	Print(stationaryProducts)
+	fmt.Println(FormatProducts(stationaryProducts))
 
+	fmt.Println("Any?")
 	fmt.Println("Are there any costly products ? : ", Any(products, costlyProductPredicate))
 
 	fmt.Println("Are there any stationary products ? : ", Any(products, stationaryProductPredicate))
 
+	fmt.Println("All?")
 	fmt.Println("Are all the products stationary products ? : ", All(products, stationaryProductPredicate))
 
 	fmt.Println("Are all the products costly products ? : ", All(products, costlyProductPredicate))
 }
 
-func Print(products []Product) {
+func Format(product Product) string {
+	return fmt.Sprintf("Id = %d, Name = %s, Cost = %v, Units = %d, Category = %s\n", product.Id, product.Name, product.Cost, product.Units, product.Category)
+}
+
+func FormatProducts(products []Product) string {
+	result := ""
 	for _, p := range products {
-		fmt.Printf("%+v\n", p)
+		result += fmt.Sprintf("%s", Format(p))
 	}
+	return result
 }
 
 //IndexOf => returns the index of the given product in the products collections (-1 if it doesnt exist)
