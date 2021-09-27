@@ -128,3 +128,27 @@ Collections
         key & value must be typed
         use 'make' func to proactively allocate memory to the underlying array
         use 'delete' func to remove a key-value pair
+
+
+Modularity
+    1. Modules 
+    2. Packages
+
+
+    Before 1.13
+        All the application code has to be maintained in the following folder structure
+            $GOPATH
+                /bin
+                /pkg
+                /src
+                    /github.com
+                        /<username>
+                            /<project-name>
+
+    After 1.13
+        Modules are now stored in the following folder structure
+        go.mod -> module file
+            go mod init <module-name> => to create the module
+
+        organize the code into packages
+            a package is just a folder

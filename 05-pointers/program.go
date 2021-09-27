@@ -17,7 +17,7 @@ func main() {
 
 	a, b := 10, 20
 	fmt.Println("Before swapping a = ", a, "b = ", b)
-	swap( /* a, b */ )
+	swap(&a, &b)
 	fmt.Println("After swapping a = ", a, "b = ", b)
 }
 
@@ -25,6 +25,6 @@ func increment(no *int) {
 	*no++
 }
 
-func swap( /*  */ ) {
-
+func swap(no1Ptr, no2Ptr *int) {
+	*no1Ptr, *no2Ptr = *no2Ptr, *no1Ptr
 }
