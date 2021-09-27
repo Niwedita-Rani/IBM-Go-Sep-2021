@@ -87,6 +87,50 @@ func main() {
 	var newNos [5]int = [...]int{3, 1, 4, 2, 5}
 	var nosSlice = newNos[:]
 	fmt.Printf("%T, %T\n", newNos, nosSlice)
+
+	//Maps
+	fmt.Printf("\nMaps\n")
+	//creating a map
+	/* var cityRanks map[string]int = map[string]int{
+		"Bengaluru": 4,
+		"Udupi":     1,
+		"Mysuru":    3,
+		"Mangaluru": 2,
+	} */
+	cityRanks := make(map[string]int, 10)
+	fmt.Println(cityRanks)
+
+	cityRanks["Bengaluru"] = 4
+	cityRanks["Udupi"] = 1
+	cityRanks["Mysuru"] = 3
+	cityRanks["Mangaluru"] = 2
+
+	fmt.Println(cityRanks)
+	fmt.Println("Rank of Mysuru => ", cityRanks["Mysuru"])
+	fmt.Println("All the cities and their ranks")
+	for city, rank := range cityRanks {
+		fmt.Println(city, "=>", rank)
+	}
+
+	//Adding a new key/value pair
+	cityRanks["Kochi"] = 5
+	fmt.Println("Adding a new city with rank")
+	for city, rank := range cityRanks {
+		fmt.Println(city, "=>", rank)
+	}
+
+	//checking if a key exists
+	rank, ok := cityRanks["Kochi"]
+	if ok == true {
+		fmt.Println("Does Kochi exists? ", ok, rank)
+	} else {
+		fmt.Println("Kochi doesnot exists")
+	}
+
+	//remove a key/value pair
+	delete(cityRanks, "Kochi")
+	fmt.Println("After deleting a key/value pair")
+	fmt.Println(cityRanks)
 }
 
 func printStats(label string, data []string) {

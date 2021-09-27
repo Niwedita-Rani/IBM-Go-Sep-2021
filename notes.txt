@@ -122,5 +122,9 @@ Collections
         similar to an array but of varying size
         use 'append' func to add new items to the slice
         use 'make' func to proactively allocate memory to the underlying array
-        
+
     3. Map
+        collection of key-value pairs
+        key & value must be typed
+        use 'make' func to proactively allocate memory to the underlying array
+        use 'delete' func to remove a key-value pair
