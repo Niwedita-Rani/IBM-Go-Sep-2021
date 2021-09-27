@@ -2,6 +2,7 @@ package calculator
 
 import "fmt"
 
+//private
 var opCount int
 
 //package initializing

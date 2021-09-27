@@ -156,4 +156,13 @@ Modularity
         To install a package
             go get <package-name>
 
+        to update the dependent packages with the latest version
+            go get -u <package-name>
+            OR
+            go get -u
+
+            go mod tidy
+
+            
+
         
