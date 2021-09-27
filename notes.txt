@@ -117,6 +117,10 @@ Collections
         fixed size
         indexing starts from 0
         len func returns the size of the array
-        
+
     2. Slice
+        similar to an array but of varying size
+        use 'append' func to add new items to the slice
+        use 'make' func to proactively allocate memory to the underlying array
+        
     3. Map
