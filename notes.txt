@@ -107,3 +107,16 @@ Functions
         functions can be passed as arguments to other functions
         functions can be returned as returned as result
     3. Closures
+    4. Deferred functions
+    5. Panic & Recovery
+
+Day-02
+Collections
+    1. Array
+        collection of value of the same type
+        fixed size
+        indexing starts from 0
+        len func returns the size of the array
+        
+    2. Slice
+    3. Map
