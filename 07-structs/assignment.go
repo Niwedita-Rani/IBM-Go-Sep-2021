@@ -32,6 +32,14 @@ func main() {
 	stationaryProducts := Filter(products, stationaryProductPredicate)
 	fmt.Println("Stationary Products")
 	Print(stationaryProducts)
+
+	fmt.Println("Are there any costly products ? : ", Any(products, costlyProductPredicate))
+
+	fmt.Println("Are there any stationary products ? : ", Any(products, stationaryProductPredicate))
+
+	fmt.Println("Are all the products stationary products ? : ", All(products, stationaryProductPredicate))
+
+	fmt.Println("Are all the products costly products ? : ", All(products, costlyProductPredicate))
 }
 
 func Print(products []Product) {
@@ -95,8 +103,24 @@ func Filter(products []Product, predicate func(Product) bool) []Product {
 //use cases
 //Are there any costly products?
 //Are there any stationary products?
+func Any(products []Product, predicate func(Product) bool) bool {
+	for _, p := range products {
+		if predicate(p) {
+			return true
+		}
+	}
+	return false
+}
 
 //All => return true/false based on the existence of all the products that satisfy the given criteria in the products collection
 //use cases
 //Are all the products stationary products?
 //Are all the products costly products?
+func All(products []Product, predicate func(Product) bool) bool {
+	for _, p := range products {
+		if !predicate(p) {
+			return false
+		}
+	}
+	return true
+}
