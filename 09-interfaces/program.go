@@ -52,10 +52,25 @@ func PrintPerimeter(shape ShapeWithPerimeter) {
 }
 
 //Sprint-5
-func PrintDimensions( /*  */ ) {
-	//Print Area
-	//Print Perimeter
+func PrintDimensions(sd ShapeWithDimensions) {
+	PrintArea(sd)
+	PrintPerimeter(sd)
+}
 
+type ShapeWithDimensions interface {
+	/* Area() float64
+	Perimeter() float64 */
+	ShapeWithArea
+	ShapeWithPerimeter
+}
+
+//Sprint-5
+type AreaCalculator interface {
+	Area() float64
+}
+
+func calculateArea(ac AreaCalculator) string {
+	return fmt.Sprintf("Calculated Area = %f", ac.Area())
 }
 
 func main() {
@@ -74,4 +89,6 @@ func main() {
 		PrintPerimeter(r)
 	*/
 	PrintDimensions(r)
+
+	fmt.Println(calculateArea(c))
 }
