@@ -171,3 +171,14 @@ Concurrency
     Concurrent operations
         Operations that are initiated but not waited for their completion
         
+    channels
+        communication between two goroutines
+
+        creating a channel
+            ch := make(chan int)
+
+        writing data into the channel ( <- operator )
+            ch <- 10
+
+        reading data from the channel ( <- operator )
+            val := <- ch
