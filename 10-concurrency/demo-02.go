@@ -7,9 +7,9 @@ import (
 
 func main() {
 	var wg *sync.WaitGroup = &sync.WaitGroup{}
-	wg.Add(1)
+	wg.Add(2)
 	go print("Hello", wg)
-	wg.Add(1)
+	//wg.Add(1)
 	go print("World", wg)
 
 	fmt.Println("reaching end of main")

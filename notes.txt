@@ -167,3 +167,7 @@ Modularity
 Interfaces
     Abstractions
         
+Concurrency
+    Concurrent operations
+        Operations that are initiated but not waited for their completion
+        
