@@ -31,6 +31,7 @@ func main() {
 	}
 	fmt.Println("No of operations = ", counter)
 	fmt.Println("Result = ", results)
+	fmt.Println(<-ch)
 	fmt.Println("End of main")
 }
 
