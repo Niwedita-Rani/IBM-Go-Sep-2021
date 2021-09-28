@@ -182,3 +182,7 @@ Concurrency
 
         reading data from the channel ( <- operator )
             val := <- ch
+
+        Default channel behavior (non buffered channel)
+            A write can be successful only when a read is initiated
+            A read operation is a blocking operation
