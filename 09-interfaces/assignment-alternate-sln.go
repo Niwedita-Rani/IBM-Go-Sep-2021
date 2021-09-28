@@ -27,6 +27,12 @@ func (by By) Sort(products []Product) {
 	sort.Sort(ps)
 }
 
+// productSorter joins a By function and a slice of Products to be sorted.
+type productSorter struct {
+	products []Product
+	by       func(p1, p2 *Product) bool // Closure used in the Less method.
+}
+
 // Len is part of sort.Interface.
 func (s *productSorter) Len() int {
 	return len(s.products)
@@ -40,12 +46,6 @@ func (s *productSorter) Swap(i, j int) {
 // Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
 func (s *productSorter) Less(i, j int) bool {
 	return s.by(&s.products[i], &s.products[j])
-}
-
-// productSorter joins a By function and a slice of Products to be sorted.
-type productSorter struct {
-	products []Product
-	by       func(p1, p2 *Product) bool // Closure used in the Less method.
 }
 
 func main() {
@@ -86,7 +86,12 @@ func main() {
 	By(units).Sort(products)
 	fmt.Println("By units:", products)
 
-	By(category).Sort(products)
+	//By(category).Sort(products)
+	ps := &productSorter{
+		products: products,
+		by:       category, // The Sort method's receiver is the function (closure) that defines the sort order.
+	}
+	sort.Sort(ps)
 	fmt.Println("By category:", products)
 
 	//Sort the products by id or name or cost or units or category
