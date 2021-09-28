@@ -18,7 +18,10 @@ func main() {
 	resultCh := make(chan int)
 	go sum(resultCh, dataSet1...)
 	go sum(resultCh, dataSet2...)
-	result := <-resultCh + <-resultCh
+	result1 := <-resultCh
+	result2 := <-resultCh
+	go sum(resultCh, result1, result2)
+	result := <-resultCh
 	fmt.Println("Result = ", result)
 
 }
