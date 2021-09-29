@@ -1,28 +1,28 @@
 package main
 
 import (
-	"fmt"
 	"time"
 )
 
 func main() {
 	ch := make(chan int)
-	stop := make(chan bool)
-	go fibonacci(ch, stop)
 
-	go func() {
-		fmt.Println("Hit ENTER to stop!")
-		var input string
-		fmt.Scanln(&input)
-		stop <- true
-	}()
+	go fibonacci(ch)
 
 	for no := range ch {
 		println(no)
 	}
 }
 
-func fibonacci(ch chan int, stop chan bool) {
+func fibonacci(ch chan int) {
+	/*
+		stop := make(chan bool)
+		go func() {
+			time.Sleep(20 * time.Second)
+			stop <- true
+		}()
+	*/
+	stop := time.After(20 * time.Second)
 	x, y := 0, 1
 	for {
 		select {
