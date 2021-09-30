@@ -22,6 +22,31 @@ message AverageResponse{
     int64 result = 1;
 }
 
+//Server Streaming
+message PrimeRequest{
+    int64 start = 1;
+    int64 end = 2;
+}
+
+message PrimeResponse{
+    int64 no = 1;
+}
+
+//bidirectional streaming
+message Greeting{
+    string first_name = 1;
+    string last_name = 2;
+}
+
+message GreetRequest{
+    Greeting greeting = 1;
+}
+
+message GreetResponse{
+    string greetMessage = 1;
+}
+
+
 service AppService{
 
     //request & response
@@ -29,5 +54,12 @@ service AppService{
 
     //Client Streaming
     rpc Average(stream AverageRequest) returns (AverageResponse);
+
+    //Server Streaming
+    rpc GeneratePrime(PrimeRequest) returns (stream PrimeResponse);
+
+    //bidirectional streaming
+    rpc Greet(stream GreetRequest) returns (stream GreetResponse);
+
 }
 
