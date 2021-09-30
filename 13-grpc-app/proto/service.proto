@@ -4,7 +4,7 @@ package proto;
 option go_package = "/proto";
 
 //Request & Response
-message AddReqeust{
+message AddRequest{
     int64 x = 1;
     int64 y = 2;
 }
@@ -15,5 +15,5 @@ message AddResponse{
 
 service AppService{
     //request & response
-    rpc Add(AddReqeust) returns (AddResponse);
+    rpc Add(AddRequest) returns (AddResponse);
 }

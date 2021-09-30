@@ -14,7 +14,7 @@ type server struct {
 	proto.UnimplementedAppServiceServer
 }
 
-func (s *server) Add(ctx context.Context, req *proto.AddReqeust) (*proto.AddResponse, error) {
+func (s *server) Add(ctx context.Context, req *proto.AddRequest) (*proto.AddResponse, error) {
 	x := req.GetX()
 	y := req.GetY()
 	result := x + y

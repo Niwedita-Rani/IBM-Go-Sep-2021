@@ -19,7 +19,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AppServiceClient interface {
 	//request & response
-	Add(ctx context.Context, in *AddReqeust, opts ...grpc.CallOption) (*AddResponse, error)
+	Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error)
 }
 
 type appServiceClient struct {
@@ -30,7 +30,7 @@ func NewAppServiceClient(cc grpc.ClientConnInterface) AppServiceClient {
 	return &appServiceClient{cc}
 }
 
-func (c *appServiceClient) Add(ctx context.Context, in *AddReqeust, opts ...grpc.CallOption) (*AddResponse, error) {
+func (c *appServiceClient) Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error) {
 	out := new(AddResponse)
 	err := c.cc.Invoke(ctx, "/proto.AppService/Add", in, out, opts...)
 	if err != nil {
@@ -44,7 +44,7 @@ func (c *appServiceClient) Add(ctx context.Context, in *AddReqeust, opts ...grpc
 // for forward compatibility
 type AppServiceServer interface {
 	//request & response
-	Add(context.Context, *AddReqeust) (*AddResponse, error)
+	Add(context.Context, *AddRequest) (*AddResponse, error)
 	mustEmbedUnimplementedAppServiceServer()
 }
 
@@ -52,7 +52,7 @@ type AppServiceServer interface {
 type UnimplementedAppServiceServer struct {
 }
 
-func (UnimplementedAppServiceServer) Add(context.Context, *AddReqeust) (*AddResponse, error) {
+func (UnimplementedAppServiceServer) Add(context.Context, *AddRequest) (*AddResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
 }
 func (UnimplementedAppServiceServer) mustEmbedUnimplementedAppServiceServer() {}
@@ -69,7 +69,7 @@ func RegisterAppServiceServer(s grpc.ServiceRegistrar, srv AppServiceServer) {
 }
 
 func _AppService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddReqeust)
+	in := new(AddRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func _AppService_Add_Handler(srv interface{}, ctx context.Context, dec func(inte
 		FullMethod: "/proto.AppService/Add",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppServiceServer).Add(ctx, req.(*AddReqeust))
+		return srv.(AppServiceServer).Add(ctx, req.(*AddRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
