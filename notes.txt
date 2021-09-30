@@ -193,3 +193,84 @@ IO
     2. os
     3. ioutil
     4. bufio
+
+
+GRPC
+    Interprocess Communication
+
+
+.NET Remoting
+RMI
+    Native solutions
+        Binary Serialization
+        TCP
+            statefull connections
+            Realtime updates were possible
+
+Web Services
+    TCP
+    IP
+    HTTP
+    XML
+        SOAP
+        WSDL
+
+    Text
+    HTTP
+        stateless protocol
+        Realtime updates were very difficult
+    
+RESTful Services
+
+101,Pen,10,100,Stationary 102,Pencil,5,50,Stationary
+
+Actual Data Size = 53
+XML = 245 (5 times)
+JSON = 158 (3 times)
+
+Microservices
+    Why?
+
+
+Master Data
+    Immutable
+    Read Optimized
+
+Analytical Data
+    Read Optimized
+    Changes periodically
+
+Append Only with rare updates
+    Read Optimized
+
+Transactional Data
+    Optimized for updates
+
+Realtime Data
+
+
+GRPC
+    protocol buffers
+    HTTP2 (formerly SPDY)
+        real time updates
+
+    Communication Patterns
+        1. Request & Response
+        2. Client streaming (multiple requests & one response)
+        3. Server streaming (one request & multiple responses)
+        4. Bidirectional streaming( multiple requests & multiple responses)
+
+For Mac
+    brew install protobuf
+    brew install protoc-gen-go
+    brew install protoc-gen-go-grpc
+
+For Windows
+    Download https://github.com/protocolbuffers/protobuf/releases/download/v3.18.0/protoc-3.18.0-win64.zip
+    Extract it in a folder
+    Add the folder the PATH environment variable
+
+protoc --version
+
+To generate the proxy & stub
+    protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative proto/service.proto
